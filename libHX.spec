@@ -4,7 +4,7 @@
 
 Name:           libHX
 Version:        1.10.2
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        General-purpose library
 
 Group:          System/Libraries
@@ -35,7 +35,7 @@ Summary:        Development files for %{name}
 Group:          Development/C
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig
-Provides:       %{develname} = %{version}-%{release}
+Provides:       %{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
 The %{name}-devel package contains libraries and header files for

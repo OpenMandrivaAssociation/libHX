@@ -3,17 +3,14 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        1.10.2
-Release:        %mkrel 2
+Version:        1.17
+Release:        %mkrel 1
 Summary:        General-purpose library
-
 Group:          System/Libraries
-License:        GPL
+License:        GPLv3+ and LGPLv2+
 URL:            http://jengelh.hopto.org/f/libHX/
 Source0:        http://jengelh.hopto.org/f/libHX/libHX-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
-BuildRequires:  perl gcc
 
 
 %description
@@ -44,13 +41,10 @@ developing applications that use %{name}.
 
 %prep
 %setup -q
-cp -a t examples
-
 
 %build
 %configure2_5x --disable-static
 %make
-rm examples/Makefile*
 
 %install
 rm -rf %{buildroot}
@@ -71,12 +65,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc LICENSE.LGPL2 LICENSE.LGPL3 LICENSE.GPL3
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 
 %files -n %{develname}
 %defattr(-,root,root,-)
-%doc doc/* examples
+%doc doc/*
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libHX.pc

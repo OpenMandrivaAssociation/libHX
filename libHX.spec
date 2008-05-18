@@ -4,14 +4,13 @@
 
 Name:           libHX
 Version:        1.17
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        General-purpose library
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+
 URL:            http://jengelh.hopto.org/f/libHX/
 Source0:        http://jengelh.hopto.org/f/libHX/libHX-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-
 
 %description
 A library for:
@@ -26,12 +25,27 @@ A library for:
   /dev/urandom support
 - various string, memory and zvec ops
 
+%package -n %{libname}
+Group: System/Libraries
+Summary: General-purpose library
+Obsoletes: %{name} < 1.17-2
+
+%description -n %{libname}
+- A+R/B trees to use for lists or maps (associative arrays)
+- Deques (double-ended queues) (Stacks (LIFO) / Queues (FIFOs))
+- platform independent opendir-style directory access
+- platform independent dlopen-style shared library access
+- auto-storage strings with direct access
+- command line option (argv) parser
+- shell-style config file parser
+- platform independent random number generator with transparent
+  /dev/urandom support
+- various string, memory and zvec ops
 
 %package -n %{develname}
 Summary:        Development files for %{name}
 Group:          Development/C
-Requires:       %{name} = %{version}-%{release}
-Requires:       pkgconfig
+Requires:       %{libname} = %{version}-%{release}
 Provides:       %{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
@@ -62,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun -p /sbin/ldconfig
 
 
-%files
+%files -n %{libname}
 %defattr(-,root,root,-)
 %doc LICENSE.LGPL2 LICENSE.LGPL3 LICENSE.GPL3
 %{_libdir}/*.so.%{major}*

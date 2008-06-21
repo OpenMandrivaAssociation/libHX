@@ -1,10 +1,10 @@
-%define major 10
+%define major 13
 %define libname %mklibname HX %{major}
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        1.17
-Release:        %mkrel 2
+Version:        1.18
+Release:        %mkrel 1
 Summary:        General-purpose library
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+

@@ -3,7 +3,7 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        1.22
+Version:        1.23
 Release:        %mkrel 1
 Summary:        General-purpose library
 Group:          System/Libraries

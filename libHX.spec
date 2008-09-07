@@ -1,15 +1,15 @@
-%define major 13
+%define major 14
 %define libname %mklibname HX %{major}
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        1.23
+Version:        1.25
 Release:        %mkrel 1
 Summary:        General-purpose library
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+
-URL:            http://jengelh.hopto.org/f/libHX/
-Source0:        http://jengelh.hopto.org/f/libHX/libHX-%{version}.tar.bz2
+URL:            http://jengelh.medozas.de/projects/libHX/
+Source0:        http://jengelh.medozas.de/files/libHX/libHX-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description

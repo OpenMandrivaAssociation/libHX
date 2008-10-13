@@ -3,7 +3,7 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        1.25
+Version:        1.26
 Release:        %mkrel 1
 Summary:        General-purpose library
 Group:          System/Libraries
@@ -63,12 +63,11 @@ developing applications that use %{name}.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-#make install DESTDIR=$RPM_BUILD_ROOT
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 
 %if %mdkversion < 200900
@@ -82,7 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(-,root,root,-)
-%doc LICENSE.LGPL2 LICENSE.LGPL3 LICENSE.GPL3
 %{_libdir}/*.so.%{major}*
 
 

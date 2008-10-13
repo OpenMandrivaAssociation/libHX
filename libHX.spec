@@ -5,7 +5,7 @@
 Name:           libHX
 Version:        1.26
 Release:        %mkrel 1
-Summary:        General-purpose library
+Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+
 URL:            http://jengelh.medozas.de/projects/libHX/

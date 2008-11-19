@@ -3,7 +3,7 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        1.26
+Version:        1.28
 Release:        %mkrel 1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries

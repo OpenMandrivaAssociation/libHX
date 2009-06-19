@@ -3,7 +3,7 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        2.5
+Version:        2.7
 Release:        %mkrel 1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
@@ -90,3 +90,4 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libHX.pc
+%{_datadir}/doc/libhx/libHX_Documentation.pdf

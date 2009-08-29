@@ -1,9 +1,9 @@
-%define major 18
+%define major 22
 %define libname %mklibname HX %{major}
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        2.8
+Version:        3.0
 Release:        %mkrel 1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries

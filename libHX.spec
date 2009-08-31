@@ -3,13 +3,13 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        3.0
+Version:        3.0.1
 Release:        %mkrel 1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+
-URL:            http://jengelh.medozas.de/projects/libHX/
-Source0:        http://jengelh.medozas.de/files/libHX/libHX-%{version}.tar.bz2
+URL:            http://libhx.sourceforge.net/
+Source0:        http://downloads.sourceforge.net/project/libhx/%{name}/%{version}/libHX-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description

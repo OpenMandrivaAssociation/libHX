@@ -1,9 +1,9 @@
-%define major 25
+%define major 27
 %define libname %mklibname HX %{major}
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        3.8
+Version:        3.10.1
 Release:        %mkrel 1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
@@ -65,7 +65,6 @@ rm -rf %{buildroot}
 %makeinstall_std
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
-
 %clean
 rm -rf %{buildroot}
 
@@ -83,7 +82,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %{_libdir}/*.so.%{major}*
 
-
 %files -n %{develname}
 %defattr(-,root,root,-)
 %doc doc/*
@@ -91,3 +89,4 @@ rm -rf %{buildroot}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libHX.pc
 %{_datadir}/doc/libhx/libHX_Documentation.pdf
+%{_mandir}/man1/hxdirstamp.1.*

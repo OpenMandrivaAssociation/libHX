@@ -4,7 +4,7 @@
 
 Name:           libHX
 Version:        3.10.1
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+

@@ -1,10 +1,10 @@
-%define major 27
+%define major 28
 %define libname %mklibname HX %{major}
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        3.10.1
-Release:        %mkrel 2
+Version:        3.12.1
+Release:        %mkrel 1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+
@@ -89,4 +89,4 @@ rm -rf %{buildroot}
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/libHX.pc
 %{_datadir}/doc/libhx/libHX_Documentation.pdf
-%{_mandir}/man1/hxdirstamp.1.*
+#{_mandir}/man1/hxdirstamp.1.*

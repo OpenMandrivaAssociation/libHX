@@ -3,14 +3,14 @@
 %define develname %mklibname HX -d
 
 Name:           libHX
-Version:        3.12.1
-Release:        %mkrel 1
+Version:        3.13
+Release:        1
 Summary:        A library for common data structures and low level operations
 Group:          System/Libraries
 License:        GPLv3+ and LGPLv2+
 URL:            http://libhx.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/project/libhx/%{name}/%{version}/libHX-%{version}.tar.xz
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+Source1:        http://downloads.sourceforge.net/project/libhx/%{name}/%{version}/libHX-%{version}.tar.xz.asc
 
 %description
 A library for:
@@ -45,48 +45,31 @@ Obsoletes: %{name} < 1.17-2
 %package -n %{develname}
 Summary:        Development files for %{name}
 Group:          Development/C
-Requires:       %{libname} = %{version}-%{release}
-Provides:       %{name}-devel = %{version}-%{release}
+Requires:       %{libname} = %{version}
+Provides:       %{name}-devel = %{EVRD}
 
 %description -n %{develname}
 The %{name}-devel package contains libraries and header files for
 developing applications that use %{name}.
 
-
 %prep
 %setup -q
 
 %build
-%configure2_5x --disable-static
+# /sbin/mount.crypt from pam_mount uses libHX
+%configure2_5x --disable-static --libdir=/%{_lib} --with-pkgconfigdir=%{_libdir}/pkgconfig
 %make
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
-
-%clean
-rm -rf %{buildroot}
-
-
-%if %mdkversion < 200900
-%post -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -p /sbin/ldconfig
-%endif
-
 
 %files -n %{libname}
-%defattr(-,root,root,-)
-%{_libdir}/*.so.%{major}*
+/%{_lib}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root,-)
 %doc doc/*
 %{_includedir}/*
-%{_libdir}/*.so
+/%{_lib}/*.so
 %{_libdir}/pkgconfig/libHX.pc
 %{_datadir}/doc/libhx/libHX_Documentation.pdf
-#{_mandir}/man1/hxdirstamp.1.*

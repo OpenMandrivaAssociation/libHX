@@ -5,7 +5,7 @@
 Summary:	A library for common data structures and low level operations
 Name:		libHX
 Version:	3.13
-Release:	2
+Release:	3
 Group:		System/Libraries
 License:	GPLv3+ and LGPLv2+
 Url:		http://libhx.sourceforge.net/

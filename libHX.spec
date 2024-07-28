@@ -1,16 +1,18 @@
-%define major	28
-%define libname %mklibname HX %{major}
+%define major	32
+%define libname %mklibname HX
+%define oldlibname %mklibname HX 28
 %define devname %mklibname HX -d
 
 Summary:	A library for common data structures and low level operations
 Name:		libHX
-Version:	3.13
-Release:	11
+Version:	4.24
+Release:	1
 Group:		System/Libraries
 License:	GPLv3+ and LGPLv2+
-Url:		http://libhx.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/project/libhx/%{name}/%{version}/libHX-%{version}.tar.xz
-Source1:	http://downloads.sourceforge.net/project/libhx/%{name}/%{version}/libHX-%{version}.tar.xz.asc
+Url:		https://inai.de/projects/libhx/
+Source0:	https://inai.de/files/libhx/libHX-%{version}.tar.xz
+Source1:	https://inai.de/files/libhx/libHX-%{version}.tar.asc
+BuildSystem:	autotools
 
 %description
 A library for:
@@ -28,6 +30,8 @@ A library for:
 %package -n %{libname}
 Group:		System/Libraries
 Summary:	General-purpose library
+# Renamed after 5.0
+%rename %{oldlibname}
 
 %description -n %{libname}
 - A+R/B trees to use for lists or maps (associative arrays)
@@ -51,27 +55,11 @@ Provides:	%{name}-devel = %{EVRD}
 This package contains libraries and header files for
 developing applications that use %{name}.
 
-%prep
-%setup -q
-
-%build
-# /sbin/mount.crypt from pam_mount uses libHX
-%configure2_5x \
-	--disable-static \
-	--libdir=/%{_lib} \
-	--with-pkgconfigdir=%{_libdir}/pkgconfig
-%make
-
-%install
-%makeinstall_std
-
 %files -n %{libname}
-/%{_lib}/libHX.so.%{major}*
+%{_libdir}/libHX.so.%{major}*
 
 %files -n %{devname}
 %doc doc/*
-%doc %{_datadir}/doc/libhx/libHX_Documentation.pdf
 %{_includedir}/*
-/%{_lib}/*.so
+%{_libdir}/*.so
 %{_libdir}/pkgconfig/libHX.pc
-

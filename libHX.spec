@@ -5,7 +5,7 @@
 
 Summary:	A library for common data structures and low level operations
 Name:		libHX
-Version:	4.24
+Version:	4.27
 Release:	1
 Group:		System/Libraries
 License:	GPLv3+ and LGPLv2+

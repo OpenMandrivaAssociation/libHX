@@ -1,16 +1,16 @@
-%define major	32
+%define major	43
 %define libname %mklibname HX
 %define oldlibname %mklibname HX 28
 %define devname %mklibname HX -d
 
 Summary:	A library for common data structures and low level operations
 Name:		libHX
-Version:	4.27
+Version:	5.3
 Release:	1
 Group:		System/Libraries
 License:	GPLv3+ and LGPLv2+
 Url:		https://inai.de/projects/libhx/
-Source0:	https://inai.de/files/libhx/libHX-%{version}.tar.xz
+Source0:	https://inai.de/files/libhx/libHX-%{version}.tar.zst
 Source1:	https://inai.de/files/libhx/libHX-%{version}.tar.asc
 BuildSystem:	autotools
 
